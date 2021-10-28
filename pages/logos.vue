@@ -8,12 +8,12 @@
     .row.mt-4
       .col
         .lead White
-        img(height="100" src="~/assets/logos/alcorblack.svg")
+        img(height="100" src="~/assets/logos/trading-window-logo.png")
 
     .row.mt-4
       .col
         .lead Black
-        img(height="100" src="~/assets/logos/alcorwhite.svg")
+        img(height="100" src="~/assets/logos/trading-window-logo.png")
 
   .col
     .row
