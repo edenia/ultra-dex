@@ -8,35 +8,6 @@
       img.chain(src='~/assets/images/supportedchain-2.svg')
       img.chain(src='~/assets/images/supportedchain-3.svg')
       span.more and more...
-    .inner-container
-      span.title Building a global community.
-      p.text Learn more about Alcor, chat with the community, and get announcements faster than anyone.
-      .social-items
-        a.item(href="https://t.me/alcorexchange" target="_blank")
-          .icon
-            img(src='~/assets/icons/Telegram.svg')
-          span.name Telegram
-          span.desc Support & Trading Talks
-        a.item(href="https://avral.medium.com/" target="_blank")
-          .icon
-            img(src='~/assets/icons/Monogram.svg')
-          span.name Medium
-          span.desc Reviews & News
-        a.item(href="https://github.com/avral/alcor-ui" target="_blank")
-          .icon
-            img(src='~/assets/icons/Github.svg')
-          span.name Github
-          span.desc Code & Contribuion
-        a.item(href="https://twitter.com/alcorexchange" target="_blank")
-          .icon
-            img(src='~/assets/icons/Twitter.svg')
-          span.name Twitter
-          span.desc Announcements
-        a.item(href="mailto:admin@alcor.exchange")
-          .icon
-            img(src='~/assets/icons/Email.svg')
-          span.name Email
-          span.desc admin@alcor.exchange
 </template>
 
 <script>

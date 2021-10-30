@@ -22,7 +22,7 @@
         stroke-linecap="round"
       ></g>
     </svg>
-    <img id="logo" class="logo" src="~/assets/images/frame_logo.svg" alt="" />
+    <img id="logo" class="logo" src="~/assets/images/frame_logo.png" alt="" />
   </div>
 </template>
 
