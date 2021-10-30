@@ -178,7 +178,8 @@ export default {
 }
 .network-selection {
   cursor: pointer;
-  display: flex;
+  //display: flex;
+  display: none;
   align-items: center;
   padding: 4px 14px;
   color: var(--text-default);

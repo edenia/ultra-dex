@@ -203,7 +203,8 @@ export default {
   margin: 0;
   padding: 0;
   margin-left: 14px;
-  display: flex;
+  //display: flex;
+  display: none;
   .item {
     padding: 4px 14px;
     margin-right: 4px;
