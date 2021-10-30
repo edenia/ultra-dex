@@ -281,6 +281,7 @@ export default {
   }
 }
 .menuActive {
+  display: none;
   right: 0px;
 }
 .fixed-menu {
