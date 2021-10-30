@@ -107,9 +107,13 @@ DARK END */
   }
 
   // CARD
+  .el-radio-button__inner {
+    color: #919191;;
+    background: #212135;
+  }
   .el-radio-button__inner:hover {
-    color: #ffffff;;
-    background: #252525;
+    background: #12121b;
+    color: white;
   }
 
   .el-tabs__item {
@@ -126,7 +130,12 @@ DARK END */
   .el-switch__core {
     background: #484848;
   }
-
+  .el-input__inner {
+    background: #212135;
+    -webkit-appearance: none;
+    margin: 0;
+    -moz-appearance: textfield;
+  }
   // BUTTON
   .el-button {
     &:hover,
