@@ -27,7 +27,7 @@ footer(:class="{isMobile}").alcor-inner
         | Is very useful eosio chains explorer.
         br
         | It uses for show all deals history and token contracts.
-  span.bottom.muted © 2021 Alcor
+  span.bottom.muted © 2021 TradingView
   //- .mt-3
   //-   .row.mt-5
   //-     .col-lg-5(v-if="!isMobile")

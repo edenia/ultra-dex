@@ -86,7 +86,7 @@ export default class AnchoWallet extends WalletBase {
   }
 
   async logout() {
-    await this.link.removeSession('Alcor Exchange', this.session.auth)
+    await this.link.removeSession('TradingView Exchange', this.session.auth)
     this.session = undefined
   }
 

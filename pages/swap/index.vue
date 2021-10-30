@@ -182,8 +182,8 @@ export default {
 
     const title =
       input && output
-        ? `Alcor Exchange | Swap ${input.symbol} for ${output.symbol}`
-        : 'Alcor Exchange | Swap & Earn on your Liquidity'
+        ? `TradingView Exchange | Swap ${input.symbol} for ${output.symbol}`
+        : 'TradingView Exchange | Swap & Earn on your Liquidity'
 
     const meta = [
       {

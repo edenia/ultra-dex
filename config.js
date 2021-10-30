@@ -521,7 +521,7 @@ const networks = {
 // TODO Check is all chains configs is the same structure
 
 module.exports = {
-  APP_NAME: 'Alcor Exchange',
+  APP_NAME: 'TradingView Exchange',
   PRICE_SCALE,
   PRICE_DIGITS: PRICE_SCALE.toString().length - 1,
   CONTRACT_ACTIONS,
