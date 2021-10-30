@@ -197,7 +197,7 @@ export default {
   head() {
     const chain = this.$store.state.network.name.toUpperCase()
     return {
-      title: `TradingView Exchange | (${chain}) Self-Listing DEX`
+      title: `Trading Window Exchange | (${chain}) Self-Listing DEX`
     }
   }
 }

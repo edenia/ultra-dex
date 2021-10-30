@@ -50,7 +50,7 @@ class ProtonProvider {
         requestStatus: true
       },
       selectorOptions: {
-        appName: 'TradingView Exchange',
+        appName: 'Trading Window Exchange',
         appLogo: 'https://wax.alcor.exchange/android-chrome-192x192.svg',
 
         customStyleOptions: {

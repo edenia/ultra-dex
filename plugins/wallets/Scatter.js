@@ -42,7 +42,7 @@ export default class WCWWallet extends WalletBase {
     const scatter = this.getScatter()
     if (scatter && await scatter.isConnected()) return true
 
-    const connected = await ScatterJS.scatter.connect('TradingView Exchange', { network: this.network })
+    const connected = await ScatterJS.scatter.connect('Trading Window Exchange', { network: this.network })
 
     if (connected) {
       this.scatter_api = ScatterJS.scatter

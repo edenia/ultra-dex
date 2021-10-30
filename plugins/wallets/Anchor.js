@@ -44,7 +44,7 @@ export default class AnchoWallet extends WalletBase {
 
   async checkLogin() {
     if (!this.link) return null
-    const session = await this.link.restoreSession('TradingView Exchange')
+    const session = await this.link.restoreSession('Trading Window Exchange')
 
     if (session) {
       this.session = session
@@ -61,7 +61,7 @@ export default class AnchoWallet extends WalletBase {
 
   async login() {
     if (!this.link) this.createLink()
-    const identity = await this.link.login('TradingView Exchange')
+    const identity = await this.link.login('Trading Window Exchange')
     this.session = identity.session
 
     const { actor, permission } = this.session.auth
