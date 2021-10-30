@@ -230,10 +230,13 @@ a {
       background-color: var(--background-color-secondary);
     }
 
-    //.el-table th,
-    //tr {
-    //  background-color: var(--background-color-base);
-    //}
+    .el-table th,
+    tr {
+      background-color: var(--background-color-base);
+    }
+    .el-table__body tr:hover > td  {
+      background-color: var(--background-color-secondary);
+    }
   }
 
   .markets-bar {

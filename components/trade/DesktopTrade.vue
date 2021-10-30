@@ -250,6 +250,9 @@ export default {
 
     .el-input--prefix .el-input__inner {
       padding-left: 30%;
+      -webkit-appearance: none;
+      margin: 0;
+      -moz-appearance: textfield;
     }
 
     .el-form-item__content {
