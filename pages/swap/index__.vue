@@ -129,8 +129,8 @@ export default {
     const { input, output } = this.$store.state.swap
 
     const title = (input && output)
-      ? `Alcor Exchange | Swap ${input.symbol} for ${output.symbol}`
-      : 'Alcor Exchange | Swap & Earn on your Liquidity'
+      ? `Trading Window Exchange | Swap ${input.symbol} for ${output.symbol}`
+      : 'Trading Window Exchange | Swap & Earn on your Liquidity'
 
     const meta = [
       {

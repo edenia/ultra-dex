@@ -6,8 +6,8 @@ div
     nav.nav.alcor-inner(v-if='!isMobile')
       .nav-side.nav-left
         nuxt-link(to='/')
-          img.logo(v-if="$colorMode.value == 'light'" src='~/assets/logos/alcorblack.svg' height='44')
-          img.logo(v-else='' height='44' src='~/assets/logos/alcorwhite.svg' alt='')
+          img.logo(v-if="$colorMode.value == 'light'" src='~/assets/logos/trading-window-logo.png' height='44')
+          img.logo(v-else='' height='44' src='~/assets/logos/trading-window-logo.png' alt='')
         ul.nav-items
           li(v-for='item in menuItems' :key='item.index')
             AlcorLink.item(:to='item.index' flat :class="{ active: isActive(item.index) }")
@@ -18,14 +18,14 @@ div
       .menu-header
         .logo
           nuxt-link(to='/')
-            img.logo(v-if="$colorMode.value == 'light'" src='~/assets/logos/alcorblack.svg' height='34')
-            img.logo(v-else='' height='34' src='~/assets/logos/alcorwhite.svg' alt='')
+            img.logo(v-if="$colorMode.value == 'light'" src='~/assets/logos/trading-window-logo.png' height='34')
+            img.logo(v-else='' height='34' src='~/assets/logos/trading-window-logo.png' alt='')
         AlcorButton(@click='openMenu' :icononlyalt='true')
           i.el-icon-more
         nav(:class="['menu', { menuActive }]")
           .logo
-            img(v-if="$colorMode.value == 'light'" src='~/assets/logos/alcorblack.svg' height='50')
-            img(v-else='' height='50' src='~/assets/logos/alcorwhite.svg' alt='')
+            img(v-if="$colorMode.value == 'light'" src='~/assets/logos/trading-window-logo.png' height='50')
+            img(v-else='' height='50' src='~/assets/logos/trading-window-logo.png' alt='')
           ul.menu-items
             li(v-for='item in menuItems' :key='item.index')
               AlcorLink.item(:to='item.index' flat='')
@@ -203,7 +203,8 @@ export default {
   margin: 0;
   padding: 0;
   margin-left: 14px;
-  display: flex;
+  //display: flex;
+  display: none;
   .item {
     padding: 4px 14px;
     margin-right: 4px;

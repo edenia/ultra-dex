@@ -6,7 +6,7 @@ $--color-primary: #000000;
 $--color-primary-light-9: #252525;
 //$--color-primary-light-7: #252525;
 
-$--background-color-base: #282828;
+$--background-color-base: #12121b;
 
 $--color-white: #212121;
 //$--border-base: none;
@@ -31,7 +31,7 @@ $--button-primary-font-color: #1FC781; // green
 
 // INPUT
 $--input-font-color: #FFFFFF;
-$--input-background-color: #282828; // BG color
+$--input-background-color: #12121b; // BG color
 $--input-disabled-fill: #000000;
 $--input-hover-border: #a7b5ac;
 $--input-focus-border: #9eaba3;
@@ -65,18 +65,18 @@ $--radio-button-checked-border-color: transparent;
 // TABLE
 $--table-font-color: #d9d9d9;
 $--table-border-color: #3C3C43;
-$--table-border: 1px solid #282828;
-$--table-row-hover-background-color: #282828;
-$--table-current-row-background-color: #282828; 
+$--table-border: 1px solid #12121b;
+$--table-row-hover-background-color: #12121b;
+$--table-current-row-background-color: #12121b; 
 
 // SELECT
-$--select-dropdown-background: #282828;
+$--select-dropdown-background: #12121b;
 $--select-option-hover-background: #909399;
 $--select-option-selected-font-color: #ffffff;
 $--select-input-focus-border-color: #65676a;
 
 // POPOVER
-$--popover-background-color: #282828;
+$--popover-background-color: #12121b;
 
 // SWITCH
 $--switch-on-color: #909399;
@@ -107,9 +107,13 @@ DARK END */
   }
 
   // CARD
+  .el-radio-button__inner {
+    color: #919191;;
+    background: #212135;
+  }
   .el-radio-button__inner:hover {
-    color: #ffffff;;
-    background: #252525;
+    background: #12121b;
+    color: white;
   }
 
   .el-tabs__item {
@@ -126,7 +130,12 @@ DARK END */
   .el-switch__core {
     background: #484848;
   }
-
+  .el-input__inner {
+    background: #212135;
+    -webkit-appearance: none;
+    margin: 0;
+    -moz-appearance: textfield;
+  }
   // BUTTON
   .el-button {
     &:hover,
@@ -160,6 +169,6 @@ DARK END */
 
   // TABLE
   .el-table {
-    background-color: #222222;
+    background-color: #12121b;
   }
 }
