@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nuxt-config
+data:
+  PROTOCOL: '${PROTOCOL}'
+  NETWORK: '${NETWORK}'
+  DB_STRING_CONNECTION: '${DB_STRING_CONNECTION}'
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mongo-config
+data:
