@@ -26,7 +26,7 @@ jobs:
         run: |
           make build-docker-images && make push-docker-images
         env:
-          DOCKER_HUB_REGISTRY: ${{ secrets.DOCKER_HUB_USER }}
+          DOCKER_HUB_REGISTRY: ${{ secrets.DOCKER_HUB_REGISTRY }}
           DOCKER_HUB_USER: ${{ secrets.DOCKER_HUB_USER }}
           DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
           IMAGE_NAME_NUXT: ultradex-nuxt
