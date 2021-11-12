@@ -37,8 +37,8 @@ jobs:
         uses: steebchen/kubectl@v1.1.0
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
-          NAMESPACE: ultradex
-          INGRESS_HOST: ultradex.eosio.cr
+          NAMESPACE: ${{ secrets.NAMESPACE }}
+          INGRESS_HOST: ${{ secrets.INGRESS_HOST }}
           PROXY_HOST: nuxt.ultradex
           PROTOCOL: https
           NETWORK: eos

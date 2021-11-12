@@ -37,8 +37,8 @@ jobs:
         uses: steebchen/kubectl@v1.1.0
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
-          NAMESPACE: ultradex
-          INGRESS_HOST: ultradex.eosio.cr
+          NAMESPACE: ${{ secrets.NAMESPACE }}
+          INGRESS_HOST: ${{ secrets.INGRESS_HOST }}
           PROTOCOL: https
           NETWORK: eos
           DB_STRING_CONNECTION: mongodb://mongo.ultradex:27017/alcor_prod
