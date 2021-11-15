@@ -22,26 +22,26 @@ stop:
 	@docker-compose stop
 
 build-docker-images:
-	@docker pull $(DOCKER_HUB_REGISTRY)/$(IMAGE_NAME_NUXT):latest || true
+	@docker pull $(DOCKER_HUB_USER)/$(IMAGE_NAME_NUXT):latest || true
 	@docker build -f Dockerfile.Nuxt . \
-		-t $(DOCKER_HUB_REGISTRY)/$(IMAGE_NAME_NUXT):$(VERSION) \
-		-t $(DOCKER_HUB_REGISTRY)/$(IMAGE_NAME_NUXT):latest \
-		--cache-from $(DOCKER_HUB_REGISTRY)/$(IMAGE_NAME_NUXT):latest
-	@docker pull $(DOCKER_HUB_REGISTRY)/$(IMAGE_NAME_PROXY):latest || true
+		-t $(DOCKER_HUB_USER)/$(IMAGE_NAME_NUXT):$(VERSION) \
+		-t $(DOCKER_HUB_USER)/$(IMAGE_NAME_NUXT):latest \
+		--cache-from $(DOCKER_HUB_USER)/$(IMAGE_NAME_NUXT):latest
+	@docker pull $(DOCKER_HUB_USER)/$(IMAGE_NAME_PROXY):latest || true
 	@docker build -f Dockerfile.Proxy . \
-		-t $(DOCKER_HUB_REGISTRY)/$(IMAGE_NAME_PROXY):$(VERSION) \
-		-t $(DOCKER_HUB_REGISTRY)/$(IMAGE_NAME_PROXY):latest \
-		--cache-from $(DOCKER_HUB_REGISTRY)/$(IMAGE_NAME_PROXY):latest \
+		-t $(DOCKER_HUB_USER)/$(IMAGE_NAME_PROXY):$(VERSION) \
+		-t $(DOCKER_HUB_USER)/$(IMAGE_NAME_PROXY):latest \
+		--cache-from $(DOCKER_HUB_USER)/$(IMAGE_NAME_PROXY):latest \
 		--build-arg proxy_host="$(PROXY_HOST)"
 
 push-docker-images:
 	@echo $(DOCKER_HUB_PASSWORD) | docker login \
 		--username $(DOCKER_HUB_USER) \
 		--password-stdin
-	@docker push $(DOCKER_HUB_REGISTRY)/$(IMAGE_NAME_NUXT):$(VERSION)
-	@docker push $(DOCKER_HUB_REGISTRY)/$(IMAGE_NAME_NUXT):latest
-	@docker push $(DOCKER_HUB_REGISTRY)/$(IMAGE_NAME_PROXY):$(VERSION)
-	@docker push $(DOCKER_HUB_REGISTRY)/$(IMAGE_NAME_PROXY):latest
+	@docker push $(DOCKER_HUB_USER)/$(IMAGE_NAME_NUXT):$(VERSION)
+	@docker push $(DOCKER_HUB_USER)/$(IMAGE_NAME_NUXT):latest
+	@docker push $(DOCKER_HUB_USER)/$(IMAGE_NAME_PROXY):$(VERSION)
+	@docker push $(DOCKER_HUB_USER)/$(IMAGE_NAME_PROXY):latest
 
 build-kubernetes-namespace:
 	@rm -Rf $(K8S_BUILD_DIR) && mkdir -p $(K8S_BUILD_DIR)
