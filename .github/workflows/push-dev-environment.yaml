@@ -1,0 +1,46 @@
+name: Deploy from latest dev branch
+
+on:
+  push:
+    branches:
+      - ultra-dex
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v1
+
+      - name: Setup Docker
+        uses: docker-practice/actions-setup-docker@0.0.1
+
+      - name: Log in to docker registry
+        run: |
+          echo ${{ secrets.DOCKER_HUB_PASSWORD }} | docker login \
+            --username ${{ secrets.DOCKER_HUB_USER }} \
+            --password-stdin
+
+      - name: Build and push Docker images
+        run: |
+          make build-docker-images && make push-docker-images
+        env:
+          DOCKER_HUB_USER: ${{ secrets.DOCKER_HUB_USER }}
+          DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
+          IMAGE_NAME_NUXT: ultradex-nuxt
+          IMAGE_NAME_PROXY: ultradex-proxy
+          PROXY_HOST: nuxt.ultradex
+
+      - name: Build and push Kubernetes namespace
+        uses: steebchen/kubectl@v1.1.0
+        env:
+          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+          NAMESPACE: ${{ secrets.NAMESPACE }}
+          INGRESS_HOST: ${{ secrets.INGRESS_HOST }}
+          PROXY_HOST: nuxt.ultradex
+          PROTOCOL: https
+          NETWORK: eos
+          DB_STRING_CONNECTION: mongodb://mongo.ultradex:27017/alcor_prod
+        with:
+          args: version && make build-kubernetes-namespace && push-kubernetes-namespace
