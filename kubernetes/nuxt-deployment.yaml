@@ -19,7 +19,7 @@ spec:
       imagePullSecrets:
         - name: regcred
       containers:
-        - image: ${DOCKER_REGISTRY}/${IMAGE_NAME_NUXT}:${VERSION}
+        - image: ${DOCKER_HUB_USER}/${IMAGE_NAME_NUXT}:${VERSION}
           imagePullPolicy: 'Always'
           name: 'nuxt'
           envFrom:
