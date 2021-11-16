@@ -32,15 +32,21 @@ jobs:
           IMAGE_NAME_PROXY: ultradex-proxy
           PROXY_HOST: nuxt.ultradex
 
-      - name: Build and push Kubernetes namespace
+      - name: Build kubernetes namespace
+        id: build_kubernetes_files
+        run: |
+          make \
+            build-kubernetes namespace
+        env:
+          INGRESS_HOST: ${{ secrets.INGRESS_HOST }}
+          PROTOCOL: https
+          NETWORK: eos
+          DB_STRING_CONNECTION: mongodb://mongo.ultradex:27017/alcor_prod
+
+      - name: Deploy Kubernetes namespace
         uses: steebchen/kubectl@v1.1.0
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
           NAMESPACE: ${{ secrets.NAMESPACE }}
-          INGRESS_HOST: ${{ secrets.INGRESS_HOST }}
-          PROXY_HOST: nuxt.ultradex
-          PROTOCOL: https
-          NETWORK: eos
-          DB_STRING_CONNECTION: mongodb://mongo.ultradex:27017/alcor_prod
         with:
-          args: version && make build-kubernetes-namespace && push-kubernetes-namespace
+          args: version && make push-kubernetes-namespace
