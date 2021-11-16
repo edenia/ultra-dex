@@ -47,7 +47,7 @@ build-docker-images:
 
 push-docker-images:
 	@echo $(DOCKER_HUB_PASSWORD) | docker login \
-		--username $(DOCKER_REGISTRY) \
+		--username $(DOCKER_HUB_USER) \
 		--password-stdin
 	@docker push $(DOCKER_REGISTRY)/$(IMAGE_NAME_NUXT):$(VERSION)
 	@docker push $(DOCKER_REGISTRY)/$(IMAGE_NAME_NUXT):latest
