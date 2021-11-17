@@ -29,6 +29,7 @@ jobs:
           DOCKER_HUB_USER: ${{ secrets.DOCKER_HUB_USER }}
           PROXY_HOST: nuxt.ultradex
           NETWORK: eos
+          PROTOCOL: https
 
       - name: Push Docker images
         run: |
@@ -45,7 +46,6 @@ jobs:
           NAMESPACE: ${{ secrets.NAMESPACE }}
           INGRESS_HOST: ${{ secrets.INGRESS_HOST }}
           NETWORK: eos
-          PROTOCOL: https
           DB_STRING_CONNECTION: mongodb://mongo.ultradex:27017/alcor_prod
 
       - name: Push Kubernetes namespace
