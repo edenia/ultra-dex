@@ -25,6 +25,7 @@ stop:
 	@docker-compose stop
 
 build-docker-images:
+	@echo DOCKER_HUB_USER:${DOCKER_HUB_USER}. PROXY_HOST:${PROXY_HOST}. NETWORK:$(NETWORK). PROTOCOL:${PROTOCOL}.
 	@docker pull $(DOCKER_HUB_USER)/$(IMAGE_NAME_NUXT):latest || true
 	@docker build -f Dockerfile.Nuxt . \
 		-t $(DOCKER_HUB_USER)/$(IMAGE_NAME_NUXT):$(VERSION) \
