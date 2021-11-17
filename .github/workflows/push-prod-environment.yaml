@@ -6,7 +6,7 @@ on:
       - v*
 
 jobs:
-  create-main-image:
+  deploy:
     runs-on: ubuntu-latest
     environment: production
     steps:
@@ -16,32 +16,38 @@ jobs:
       - name: Setup Docker
         uses: docker-practice/actions-setup-docker@0.0.1
 
-      - name: Log in to docker registry
+      - name: Log in to Docker registry
         run: |
           echo ${{ secrets.DOCKER_HUB_PASSWORD }} | docker login \
             --username ${{ secrets.DOCKER_HUB_USER }} \
             --password-stdin
 
-      - name: Build and push Docker images
+      - name: Build Docker images
         run: |
-          make build-docker-images && make push-docker-images
+          make build-docker-images
+        env:
+          DOCKER_HUB_USER: ${{ secrets.DOCKER_HUB_USER }}
+          PROXY_HOST: nuxt.ultradex
+
+      - name: Push Docker images
+        run: |
+          make make push-docker-images
         env:
           DOCKER_HUB_USER: ${{ secrets.DOCKER_HUB_USER }}
           DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
-          PROXY_HOST: nuxt.ultradex
 
-      - name: Build kubernetes namespace
-        id: build_kubernetes_files
+      - name: Build Kubernetes namespace
         run: |
-          make \
-            build-kubernetes-namespace
+          make build-kubernetes-namespace
         env:
+          DOCKER_HUB_USER: ${{ secrets.DOCKER_HUB_USER }}
+          NAMESPACE: ${{ secrets.NAMESPACE }}
           INGRESS_HOST: ${{ secrets.INGRESS_HOST }}
-          PROTOCOL: https
           NETWORK: eos
+          PROTOCOL: https
           DB_STRING_CONNECTION: mongodb://mongo.ultradex:27017/alcor_prod
 
-      - name: Deploy Kubernetes namespace
+      - name: Push Kubernetes namespace
         uses: steebchen/kubectl@v1.1.0
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
