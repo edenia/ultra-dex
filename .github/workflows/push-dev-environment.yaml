@@ -31,7 +31,7 @@ jobs:
 
       - name: Push Docker images
         run: |
-          make make push-docker-images
+          make push-docker-images
         env:
           DOCKER_HUB_USER: ${{ secrets.DOCKER_HUB_USER }}
           DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
