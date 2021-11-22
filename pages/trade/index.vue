@@ -45,6 +45,10 @@ export default {
 
   mounted() {
     this.$store.dispatch('loadOrders', this.id)
+    setInterval(() => {
+      this.$store.dispatch('loadOrders', this.id)
+    }, 1000)
+
     if (!this.streaming) {
       this.$store.dispatch('market/startStream', this.id)
     }

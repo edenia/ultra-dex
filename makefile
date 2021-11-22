@@ -13,7 +13,7 @@ K8S_FILES := $(shell find ./kubernetes -name '*.yaml' | sed 's:./kubernetes/::g'
 run:
 	@docker-compose up -d --build mongo
 	@yarn install
-	@NETWORK=jungle PROTOCOL=http DB_STRING_CONNECTION="" yarn run dev
+	@NETWORK=proton PROTOCOL=http DB_STRING_CONNECTION="" yarn run dev
 
 start:
 	@docker-compose stop
